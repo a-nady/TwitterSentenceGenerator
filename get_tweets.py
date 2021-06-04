@@ -1,16 +1,16 @@
 import twint 
 import os
 
-LIMIT = 100
+
 include_links = 0
 
-def download_tweets(username):
+def download_tweets(username, limit):
     output = username.lower()
 
     config = twint.Config()
     config.Format = '{tweet}'
     config.Hide_output = True
-    config.Limit = LIMIT
+    config.Limit = limit
     config.Links = 'include' if include_links else 'exclude'
     config.Output = output
     config.Username = username
@@ -22,4 +22,3 @@ def download_tweets(username):
     twint.run.Search(config)
     print(f'Downloaded tweets to {output}.')
 
-download_tweets('officialmcafee')
