@@ -3,7 +3,8 @@ import get_tweets as gt
 import sys
 
 MARKOV_LENGTH = 2
-LIMIT = 100
+# higher limit = more unique sentences but slower, lower limit = less unique but faster
+LIMIT = 500
 
 def main():
     while 1:
@@ -18,7 +19,7 @@ def main():
     while 1:
         print()
         try:
-            sg.generate('elonmusk', 3)
+            sg.generate(username, MARKOV_LENGTH)
         # will happen when sentence generator attempts to pop off words an empty list, i.e. not enough tokens
         except IndexError:
             print("Not enough tweets/words from user to generate a unique output.")
@@ -31,5 +32,6 @@ def main():
             continue
 
         break
-
-main()
+    
+if __name__ == "__main__":
+    main()
