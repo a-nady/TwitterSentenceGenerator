@@ -1,6 +1,6 @@
 import twint 
 import os
-
+import sys
 
 include_links = 0
 
@@ -17,7 +17,7 @@ def download_tweets(username, limit):
 
     if os.path.isfile(output):
         open(output, 'w').close()
-
+        
     print(f'Downloading tweets for @{username}...')
     twint.run.Search(config)
     print(f'Downloaded tweets to {output}.')
