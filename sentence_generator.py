@@ -1,6 +1,5 @@
 import re
 import random
-import sys
 
 # Used briefly while first constructing the normalized mapping
 tempMapping = {}
