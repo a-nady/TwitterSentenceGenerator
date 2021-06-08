@@ -2,6 +2,10 @@
 
 TwitterSentenceGenerator scrapes user's tweets using a (modified) version of twint, applies the markov chain model on that user data to create randomly generated sentences. Web app coming soon!
 
+# Demo
+
+![Demo](https://s6.gifyu.com/images/demoa277cf4786e22116.gif)
+
 # About and General Aspects
 - Basically it pretends whoever the user is! If the user was a robot with a nice vocabulary but with little understanding of how words would sound next to each other, this is basically how it would look.
 - NLTK or other NLP toolkits are not required for this sentence generator (another model in the works with more legibility requires it however) so the program is relatively lightweight.
