@@ -4,7 +4,7 @@ TwitterSentenceGenerator scrapes user's tweets using a (modified) version of twi
 
 # Demo
 
-![Demo](https://s6.gifyu.com/images/demoa277cf4786e22116.gif)
+![Demo](https://i.imgur.com/0qsVbAU.gif)
 
 # About and General Aspects
 - Basically it pretends whoever the user is! If the user was a robot with a nice vocabulary but with little understanding of how words would sound next to each other, this is basically how it would look.
