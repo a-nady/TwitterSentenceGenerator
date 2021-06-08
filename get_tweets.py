@@ -1,6 +1,5 @@
 import twint 
 import os
-import sys
 
 include_links = 0
 

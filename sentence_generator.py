@@ -29,11 +29,45 @@ def fixCaps(word):
 def toHashKey(lst):
     return tuple(lst)
 
+# removes words that may mess up the structure of the sentences
+def process(data, usernames, hashtags):
+    splitdata = data.split("\n")
+
+    for s in range(len(splitdata)):
+        splitdata[s] = splitdata[s].split(" ")
+        w = 0
+        # while loop since len changes if removal occurs
+        while w < len(splitdata[s]):
+            # clutter from scraping
+            if splitdata[s][w] == "&amp;":
+                    splitdata[s].remove(splitdata[s][w])
+                    w -= 1
+            elif usernames:
+                if '@' in splitdata[s][w]:
+                    splitdata[s].remove(splitdata[s][w])
+                    w -= 1
+            elif hashtags:
+                if '#' in splitdata[s][w]:
+                    splitdata[s].remove(splitdata[s][w])
+                    w -= 1
+            w += 1
+        
+        # join tweet back
+        splitdata[s] = " ".join(splitdata[s])
+
+    newdata = " ".join(splitdata)
+
+    return newdata
+
 # Returns the contents of the file, split into a list of words and punctuation.
-def wordlist(filename):
+def wordlist(filename, usernames, hashtags):
     f = open(filename, 'r')
-    wordlist = [fixCaps(w) for w in re.findall(r"[\w']+|[.,!?;]", f.read())]
+    data = f.read()
     f.close()
+
+    data = process(data, usernames, hashtags)
+
+    wordlist = [fixCaps(w) for w in re.findall(r"[\w']+|[.,!?;]", data)]
     return wordlist
 
 # tempMapping (and mapping) both match each word to a list of possible next words.
@@ -103,8 +137,8 @@ def genSentence(markovLength):
         sent += curr
     return sent
 
-def generate(file, markovLength):
-    buildMapping(wordlist(file), markovLength)
+def generate(file, markovLength, users, htags):
+    buildMapping(wordlist(file, users, htags), markovLength)
     print(genSentence(markovLength))
 
 
