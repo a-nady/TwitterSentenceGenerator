@@ -1,6 +1,6 @@
 # TwitterSentenceGenerator
 
-TwitterSentenceGenerator scrapes user's tweets using a (modified) version of twint, applies the markov chain model on that user data to create randomly generated sentences.
+TwitterSentenceGenerator scrapes user's tweets using a (modified) version of twint, applies the markov chain model on that user data to create randomly generated sentences. Web app coming soon!
 
 # About and General Aspects
 - Basically it pretends whoever the user is! If the user was a robot with a nice vocabulary but with little understanding of how words would sound next to each other, this is basically how it would look.
@@ -26,6 +26,6 @@ python3 user_gen.py
 ```
 or use an IDE to open `user_gen.py` and run it.
 
-There are a few things you can configure, the amount of tweets the program should roughly scrape (LIMIT), the markov chain length (MARKOV_LENGTH), and whether to include links and usernames the user replied to or not. Variable Markov lengths result in different sounding sentences so feel free to expirement with it!
+There are a few things you can configure, the amount of tweets the program should roughly scrape (LIMIT), the markov chain length (MARKOV_LENGTH), and whether to include links, hashtags, and usernames the user replied to or not. Variable Markov lengths result in different sounding sentences so feel free to expirement with it!
 
 Enter the user or yourself (if you have a twitter) to see what a robot version would sound like!
