@@ -1,4 +1,3 @@
-import re
 import random
 
 # Used briefly while first constructing the normalized mapping
@@ -11,7 +10,6 @@ mapping = {}
 
 # Contains the set of words that can start sentences
 starts = []
-
 
 # tempMapping (and mapping) both match each word to a list of possible next words.
 def add_to_mapping(history, word):

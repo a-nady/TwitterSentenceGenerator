@@ -19,7 +19,7 @@ REMOVE_USERNAMES = True
 REMOVE_HASHTAGS = True
 
 # Compare words independent of their capitalization.
-def fixCaps(word):
+def fix_caps(word):
     # Ex: "FOO" -> "foo"
     if word.isupper() and word != "I":
         word = word.lower()
@@ -62,18 +62,17 @@ def process(data):
     return newdata
 
 # Returns the contents of the file, split into a list of words and punctuation.
-def wordlist(filename):
-    f = open(filename, 'r')
-    data = f.read()
-    f.close()
+def word_list(filename):
+    with open(filename, 'r') as file:
+        data = file.read()
 
     data = process(data)
 
-    wordlist = [fixCaps(w) for w in re.findall(r"[\w']+|[.,!?;]", data)]
+    wordlist = [fix_caps(w) for w in re.findall(r"[\w']+|[.,!?;]", data)]
     return wordlist
 
 def main():
-    while 1:
+    while True:
         username = input("Enter a (public) user, no @ included (e.g potus): ")
 
         try:
@@ -82,9 +81,9 @@ def main():
         except ValueError:
             print("User not found or user is private.")
 
-    words = wordlist(username)
+    words = word_list(username)
 
-    while 1:
+    while True:
         print()
         try:
             sg.generate(words, MARKOV_LENGTH)
