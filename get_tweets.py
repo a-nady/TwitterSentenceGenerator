@@ -1,5 +1,9 @@
-import twint 
 import os
+import sys
+# use modified twint
+sys.path.insert(0, 'src/twint')
+import twint 
+
 
 include_links = 0
 

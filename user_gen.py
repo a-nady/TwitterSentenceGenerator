@@ -1,6 +1,6 @@
 '''
     TODO:
-        - Somehow add apostrophes between the two words
+        - Add apostrophes between the two letter(s)
         - Implement new generator with NLTK
 '''
 
@@ -73,7 +73,7 @@ def word_list(filename):
 
 def main():
     while True:
-        username = input("Enter a (public) user, no @ included (e.g potus): ")
+        username = input("Enter a (public) twitter user handle, no @ included (e.g potus): ")
 
         try:
             gt.download_tweets(username, LIMIT)
