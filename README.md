@@ -1,6 +1,6 @@
 # TwitterSentenceGenerator
 
-TwitterSentenceGenerator scrapes user's tweets using a (modified) version of twint, applies the markov chain model on that user data to create randomly generated sentences. Web app coming soon!
+TwitterSentenceGenerator scrapes user's tweets using a (modified) version of twint, applies the markov chain model on that user data to create randomly generated sentences.
 
 # Demo
 
